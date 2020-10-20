@@ -1,32 +1,178 @@
 %% V0.1
 %% 2020/10/09
-%% by Markus Goetz
+%% by Markus Götz, Björn Hagemeier, James Kahn
 
 \RequirePackage{xcolor}
 
 % Helmholtz blue
 \definecolor{hgfblue}{RGB}{0, 90, 160}
+\colorlet{hgfblue10}{hgfblue!10!white}
+\colorlet{hgfblue20}{hgfblue!20!white}
+\colorlet{hgfblue30}{hgfblue!30!white}
+\colorlet{hgfblue40}{hgfblue!40!white}
+\colorlet{hgfblue50}{hgfblue!50!white}
+\colorlet{hgfblue60}{hgfblue!60!white}
+\colorlet{hgfblue70}{hgfblue!70!white}
+\colorlet{hgfblue80}{hgfblue!80!white}
+\colorlet{hgfblue90}{hgfblue!90!white}
+
+% Helmholtz darkblue
 \definecolor{hgfdarkblue}{RGB}{10, 45, 110}
-% Helmholtz gree
+\colorlet{hgfdarkblue10}{hgfdarkblue!10!white}
+\colorlet{hgfdarkblue20}{hgfdarkblue!20!white}
+\colorlet{hgfdarkblue30}{hgfdarkblue!30!white}
+\colorlet{hgfdarkblue40}{hgfdarkblue!40!white}
+\colorlet{hgfdarkblue50}{hgfdarkblue!50!white}
+\colorlet{hgfdarkblue60}{hgfdarkblue!60!white}
+\colorlet{hgfdarkblue70}{hgfdarkblue!70!white}
+\colorlet{hgfdarkblue80}{hgfdarkblue!80!white}
+\colorlet{hgfdarkblue90}{hgfdarkblue!90!white}
+
+% Helmholtz green
 \definecolor{hgfgreen}{RGB}{140, 180, 35}
-% Helmholtz grey
+\colorlet{hgfgreen10}{hgfgreen!10!white}
+\colorlet{hgfgreen20}{hgfgreen!20!white}
+\colorlet{hgfgreen30}{hgfgreen!30!white}
+\colorlet{hgfgreen40}{hgfgreen!40!white}
+\colorlet{hgfgreen50}{hgfgreen!50!white}
+\colorlet{hgfgreen60}{hgfgreen!60!white}
+\colorlet{hgfgreen70}{hgfgreen!70!white}
+\colorlet{hgfgreen80}{hgfgreen!80!white}
+\colorlet{hgfgreen90}{hgfgreen!90!white}
+
+% Helmholtz gray
 \definecolor{hgfgray}{RGB}{90, 105, 110}
+\colorlet{hgfgray10}{hgfgray!10!white}
+\colorlet{hgfgray20}{hgfgray!20!white}
+\colorlet{hgfgray30}{hgfgray!30!white}
+\colorlet{hgfgray40}{hgfgray!40!white}
+\colorlet{hgfgray50}{hgfgray!50!white}
+\colorlet{hgfgray60}{hgfgray!60!white}
+\colorlet{hgfgray70}{hgfgray!70!white}
+\colorlet{hgfgray80}{hgfgray!80!white}
+\colorlet{hgfgray90}{hgfgray!90!white}
+
 % RF aeronautics, space and transport
 \definecolor{hgfaerospace}{RGB}{80, 200, 170}
 \definecolor{hgfast}{named}{hgfaerospace}
+
+\colorlet{hgfaerospace10}{hgfaerospace!10!white}
+\colorlet{hgfaerospace20}{hgfaerospace!20!white}
+\colorlet{hgfaerospace30}{hgfaerospace!30!white}
+\colorlet{hgfaerospace40}{hgfaerospace!40!white}
+\colorlet{hgfaerospace50}{hgfaerospace!50!white}
+\colorlet{hgfaerospace60}{hgfaerospace!60!white}
+\colorlet{hgfaerospace70}{hgfaerospace!70!white}
+\colorlet{hgfaerospace80}{hgfaerospace!80!white}
+\colorlet{hgfaerospace90}{hgfaerospace!90!white}
+
+\colorlet{hgfast10}{hgfast!10!white}
+\colorlet{hgfast20}{hgfast!20!white}
+\colorlet{hgfast30}{hgfast!30!white}
+\colorlet{hgfast40}{hgfast!40!white}
+\colorlet{hgfast50}{hgfast!50!white}
+\colorlet{hgfast60}{hgfast!60!white}
+\colorlet{hgfast70}{hgfast!70!white}
+\colorlet{hgfast80}{hgfast!80!white}
+\colorlet{hgfast90}{hgfast!90!white}
+
 % RF earth and environment
 \definecolor{hgfearthandenvironment}{RGB}{50, 100, 105}
 \definecolor{hgfee}{named}{hgfearthandenvironment}
+
+\colorlet{hgfearthandenvironment10}{hgfearthandenvironment!10!white}
+\colorlet{hgfearthandenvironment20}{hgfearthandenvironment!20!white}
+\colorlet{hgfearthandenvironment30}{hgfearthandenvironment!30!white}
+\colorlet{hgfearthandenvironment40}{hgfearthandenvironment!40!white}
+\colorlet{hgfearthandenvironment50}{hgfearthandenvironment!50!white}
+\colorlet{hgfearthandenvironment60}{hgfearthandenvironment!60!white}
+\colorlet{hgfearthandenvironment70}{hgfearthandenvironment!70!white}
+\colorlet{hgfearthandenvironment80}{hgfearthandenvironment!80!white}
+\colorlet{hgfearthandenvironment90}{hgfearthandenvironment!90!white}
+
+\colorlet{hgfee10}{hgfee!10!white}
+\colorlet{hgfee20}{hgfee!20!white}
+\colorlet{hgfee30}{hgfee!30!white}
+\colorlet{hgfee40}{hgfee!40!white}
+\colorlet{hgfee50}{hgfee!50!white}
+\colorlet{hgfee60}{hgfee!60!white}
+\colorlet{hgfee70}{hgfee!70!white}
+\colorlet{hgfee80}{hgfee!80!white}
+\colorlet{hgfee90}{hgfee!90!white}
+
 % RF energy
 \definecolor{hgfenergy}{RGB}{255, 210, 40}
+
+\colorlet{hgfenergy10}{hgfenergy!10!white}
+\colorlet{hgfenergy20}{hgfenergy!20!white}
+\colorlet{hgfenergy30}{hgfenergy!30!white}
+\colorlet{hgfenergy40}{hgfenergy!40!white}
+\colorlet{hgfenergy50}{hgfenergy!50!white}
+\colorlet{hgfenergy60}{hgfenergy!60!white}
+\colorlet{hgfenergy70}{hgfenergy!70!white}
+\colorlet{hgfenergy80}{hgfenergy!80!white}
+\colorlet{hgfenergy90}{hgfenergy!90!white}
+
 % RF health
 \definecolor{hgfhealth}{RGB}{210, 50, 100}
+
+\colorlet{hgfhealth10}{hgfhealth!10!white}
+\colorlet{hgfhealth20}{hgfhealth!20!white}
+\colorlet{hgfhealth30}{hgfhealth!30!white}
+\colorlet{hgfhealth40}{hgfhealth!40!white}
+\colorlet{hgfhealth50}{hgfhealth!50!white}
+\colorlet{hgfhealth60}{hgfhealth!60!white}
+\colorlet{hgfhealth70}{hgfhealth!70!white}
+\colorlet{hgfhealth80}{hgfhealth!80!white}
+\colorlet{hgfhealth90}{hgfhealth!90!white}
+
 % RF key technologies
 \definecolor{hgfkeytechnologies}{RGB}{160, 35, 90}
 \definecolor{hgfkt}{named}{hgfkeytechnologies}
 \definecolor{hgfinformation}{named}{hgfkeytechnologies}
+
+\colorlet{hgfkeytechnologies10}{hgfkeytechnologies!10!white}
+\colorlet{hgfkeytechnologies20}{hgfkeytechnologies!20!white}
+\colorlet{hgfkeytechnologies30}{hgfkeytechnologies!30!white}
+\colorlet{hgfkeytechnologies40}{hgfkeytechnologies!40!white}
+\colorlet{hgfkeytechnologies50}{hgfkeytechnologies!50!white}
+\colorlet{hgfkeytechnologies60}{hgfkeytechnologies!60!white}
+\colorlet{hgfkeytechnologies70}{hgfkeytechnologies!70!white}
+\colorlet{hgfkeytechnologies80}{hgfkeytechnologies!80!white}
+\colorlet{hgfkeytechnologies90}{hgfkeytechnologies!90!white}
+
+\colorlet{hgfkt10}{hgfkt!10!white}
+\colorlet{hgfkt20}{hgfkt!20!white}
+\colorlet{hgfkt30}{hgfkt!30!white}
+\colorlet{hgfkt40}{hgfkt!40!white}
+\colorlet{hgfkt50}{hgfkt!50!white}
+\colorlet{hgfkt60}{hgfkt!60!white}
+\colorlet{hgfkt70}{hgfkt!70!white}
+\colorlet{hgfkt80}{hgfkt!80!white}
+\colorlet{hgfkt90}{hgfkt!90!white}
+
+\colorlet{hgfinformation10}{hgfinformation!10!white}
+\colorlet{hgfinformation20}{hgfinformation!20!white}
+\colorlet{hgfinformation30}{hgfinformation!30!white}
+\colorlet{hgfinformation40}{hgfinformation!40!white}
+\colorlet{hgfinformation50}{hgfinformation!50!white}
+\colorlet{hgfinformation60}{hgfinformation!60!white}
+\colorlet{hgfinformation70}{hgfinformation!70!white}
+\colorlet{hgfinformation80}{hgfinformation!80!white}
+\colorlet{hgfinformation90}{hgfinformation!90!white}
+
 % RF matter
 \definecolor{hgfmatter}{RGB}{240, 120, 30}
+
+\colorlet{hgfmatter10}{hgfmatter!10!white}
+\colorlet{hgfmatter20}{hgfmatter!20!white}
+\colorlet{hgfmatter30}{hgfmatter!30!white}
+\colorlet{hgfmatter40}{hgfmatter!40!white}
+\colorlet{hgfmatter50}{hgfmatter!50!white}
+\colorlet{hgfmatter60}{hgfmatter!60!white}
+\colorlet{hgfmatter70}{hgfmatter!70!white}
+\colorlet{hgfmatter80}{hgfmatter!80!white}
+\colorlet{hgfmatter90}{hgfmatter!90!white}
 
 \mode<presentation>
 
