@@ -1,0 +1,48 @@
+%% V0.1
+%% 2020/10/09
+%% by Markus Goetz
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage{fontspec}
+\RequirePackage[utf8x]{inputenc}
+\RequirePackage{listings}
+\RequirePackage{tikz}
+
+\usetikzlibrary{
+    calc,
+    turtle,
+    positioning
+}
+
+\usefonttheme{HelmholtzAI}
+\usecolortheme{HelmholtzAI}
+\useinnertheme{HelmholtzAI}
+\useoutertheme{HelmholtzAI}
+
+\pgfkeys{/beamerhelmholtzai/.cd, 
+    .search also={
+        /beamerhelmholtzai/inner,
+        /beamerhelmholtzai/outer,
+        /beamerhelmholtzai/color,
+        /beamerhelmholtzai/font,
+    },
+    title=regular,
+    subtitle=regular,
+    part=regular,
+    frametitle=regular,
+}
+
+\renewcommand{\ttdefault}{pcr}
+\lstset{
+    basicstyle=\ttfamily\upshape\small,
+    breaklines=true,
+    backgroundcolor=\color{lightgray!20},
+    xleftmargin=0.3cm,
+    framexleftmargin=1em,
+    keywordstyle=\bfseries\color{hgfblue},
+    stringstyle=\color{hgfgreen},
+    commentstyle=\itshape\color{hgfinformation},
+    deletekeywords={compile},
+    escapechar=\&,
+    escapeinside={<@}{@>}
+}

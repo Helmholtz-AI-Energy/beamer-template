@@ -1,0 +1,197 @@
+%% V0.1
+%% 2020/10/09
+%% by Markus Goetz
+
+% font selection
+\setmainfont[
+    Path=fonts/,
+    BoldFont=CorporateS-Bold.otf,
+    ItalicFont=CorporateS-Italic.otf,
+    BoldItalicFont=CorporateS-Bold Italic.otf,
+]{CorporateS-Regular.otf}
+\setsansfont[
+    Path=fonts/,
+    BoldFont=CorporateS-Bold.otf,
+    ItalicFont=CorporateS-Italic.otf,
+    BoldItalicFont=CorporateS-Bold Italic.otf,
+]{CorporateS-Regular.otf}
+\setmonofont[
+    Path=fonts/
+]{CorporateS-Mono.otf}
+
+\mode<presentation>
+
+\setbeamerfont{title}{size*={15pt}{16pt},series=\bfseries} % 32pt, baselineskip 36pt%
+
+\setbeamerfont{subtitle short}{size*={11pt}{12pt},series=\mdseries}  % 30pt, baselineskip 36pt
+\setbeamerfont{subtitle long}{size*={9pt}{9pt},series=\mdseries}  % 18pt, baselineskip 22pt
+\setbeamerfont*{subtitle}{parent=subtitle long} % reset font (*) and use parent font size
+\setbeamerfont*{subtitle}{parent=subtitle short} % deault subline style to short UPPERCASE s p a c e d text
+
+%\setbeamerfont{normal text}{size*={8pt}{9pt}} % 14pt, baselineskip 18pt
+\setbeamerfont{footline}{size*={6pt}{7pt}}
+
+%\setbeamerfont{frametitle}{size*={16pt}{16pt},series=\bfseries} %30pt, baselineskip 36pt
+\setbeamerfont{framesubtitle}{size*={10pt}{11pt},series=\mdseries} % 18pt, baselineskip 22pt
+
+% fonts for special text fields
+\setbeamerfont{caption}{size=\small}
+\setbeamerfont{caption name}{parent={structure,caption}}
+
+\setbeamerfont{date}{size*={10pt}{10pt}}
+
+\setbeamerfont{footline}{parent={tiny structure}}
+
+\setbeamerfont{headline}{parent={tiny structure}}
+
+\setbeamerfont{institute}{size=\footnotesize, series=\itshape}
+\setbeamerfont{navigation symbols}{size*={7pt}{8pt}}
+
+\setbeamerfont{section in toc}{parent=structure}
+\setbeamerfont{section in toc shaded}{parent=section in toc}
+
+% items
+\setbeamerfont{item}{parent=structure}
+\setbeamerfont{subitem}{parent=item}
+\setbeamerfont{subsubitem}{parent=subitem}
+
+\setbeamerfont{item projected}{size=\tiny, parent={item, projected text}}
+\setbeamerfont{subitem projected}{parent=item projected}
+\setbeamerfont{subsubitem projected}{parent=subitem projected}
+
+\setbeamerfont{description item}{parent=item}
+
+\setbeamerfont{enumerate item}{parent=item}
+\setbeamerfont{enumerate subitem}{parent=subitem}
+\setbeamerfont{enumerate subsubitem}{parent=subsubitem}
+
+\setbeamerfont{itemize/enumerate body}{}
+\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
+
+\setbeamerfont{itemize item}{parent=item}
+\setbeamerfont{itemize subitem}{parent=subitem}
+\setbeamerfont{itemize subsubitem}{parent=subsubitem}
+
+\makeatletter
+
+% automatic spacing and font sizes for long titles
+%% define options for letter spacing
+\providecommand{\emptydummyb}[1]{} % eats argument of \uppercase() and and \addfontfeature{}
+\providecommand{\emptydummya}[2][]{#2}{} % eats optional argument of textls and forwards #2 argument
+\providecommand{\addfontfeature}[1]{} % defined only if latex or pdflatex is used
+\providecommand{\textls}[2][]{#2}{} % defined only if microtype is loaded
+
+% new command definitions we will be using later on
+\def\beamerhelmholtzai@titleformat#1{#1}
+\def\beamerhelmholtzai@subtitleformat#1{#1}
+\def\beamerhelmholtzai@partformat#1{#1}
+\def\beamerhelmholtzai@frametitleformat#1{#1}
+
+%% title font size
+\pgfkeys{
+    /beamerhelmholtzai/font/title/.cd,
+    .is choice,
+    .default=regular,
+    regular/.code={%
+        \let\beamerhelmholtzai@titleformatcaps\emptydummya%
+        \let\beamerhelmholtzai@titleformatspacinga\emptydummya%
+        \let\beamerhelmholtzai@titleformatspacingb\emptydummyb%
+    },
+    allcaps/.code={%
+        \let\beamerhelmholtzai@titleformatcaps\MakeTextUppercase%
+        \let\beamerhelmholtzai@titleformatspacinga\emptydummya%
+        \let\beamerhelmholtzai@titleformatspacingb\emptydummyb%
+    },
+}
+
+%% subtitle font size
+\pgfkeys{
+    /beamerhelmholtzai/font/subtitle/.cd,
+    .is choice,
+    .default=allcaps,
+    regular/.code={%
+        \let\beamerhelmholtzai@subtitleformatcaps\emptydummya%
+        \let\beamerhelmholtzai@subtitleformatspacinga\emptydummya%
+        \let\beamerhelmholtzai@subtitleformatspacingb\emptydummyb%
+        \setbeamerfont{subtitle long}{size*={9pt}{11pt},series=\bfseries}  % 18pt, baselineskip 22pt
+    },
+    allcaps/.code={%
+        \let\beamerhelmholtzai@subtitleformatcaps\MakeTextUppercase%
+        \let\beamerhelmholtzai@subtitleformatspacinga\emptydummya%
+        \let\beamerhelmholtzai@subtitleformatspacingb\emptydummyb%
+        \setbeamerfont{title}{size*={16pt}{16pt},series=\bfseries} % 30pt, baselineskip 36pt%
+    },
+}
+
+%% regular slides
+\pgfkeys{
+    /beamerhelmholtzai/font/frametitle/.cd,
+    .is choice,
+    .default=allcaps,
+    regular/.code={%
+        \let\beamerhelmholtzai@frametitleformatcaps\emptydummya%
+        \let\beamerhelmholtzai@frametitleformatspacinga\emptydummya%
+        \let\beamerhelmholtzai@frametitleformatspacingb\emptydummyb%
+        \setbeamerfont{frametitle}{size*={14pt}{18pt},series=\bfseries} % 32pt, baselineskip 36pt%
+    },
+    allcaps/.code={%
+        \let\beamerhelmholtzai@frametitleformatcaps\MakeTextUppercase%
+        \let\beamerhelmholtzai@frametitleformatspacinga\emptydummya%
+        \let\beamerhelmholtzai@frametitleformatspacingb\emptydummyb%
+        \setbeamerfont{frametitle}{size*={14pt}{18pt},series=\bfseries} % 32pt, baselineskip 36pt%
+    },
+}
+
+%% parts
+\pgfkeys{
+    /beamerhelmholtzai/font/part/.cd,
+    .is choice,
+    .default=allcaps,
+    regular/.code={%
+        \let\beamerhelmholtzai@partformatcaps\emptydummya%
+        \let\beamerhelmholtzai@partformatspacinga\emptydummya%
+        \let\beamerhelmholtzai@partformatspacingb\emptydummyb%
+        \setbeamerfont{part}{size*={16pt}{18pt},series=\bfseries} % 30pt, baselineskip 36pt%
+    },
+    allcaps/.code={%
+        \let\beamerhelmholtzai@partformatcaps\MakeTextUppercase%
+        \let\beamerhelmholtzai@partformatspacinga\emptydummya%
+        \let\beamerhelmholtzai@partformatspacingb\emptydummyb%
+        \setbeamerfont{part}{size*={16pt}{18pt},series=\bfseries} % 30pt, baselineskip 36pt%
+    },
+}
+
+% redefine beamer title, subtitle, part and frametitle command
+\patchcmd{\beamer@title}%
+    {\def\inserttitle{#2}}%
+    {\protected\def\inserttitle{{\beamerhelmholtzai@titleformatspacingb{LetterSpace=15.0}\beamerhelmholtzai@titleformatcaps{\beamerhelmholtzai@titleformatspacinga[120]{#2}}}}}%
+    {}%
+    {\PackageError{beamerhelmholtzai}{Patching original title failed}\@ehc}
+\patchcmd{\beamer@subtitle}%
+    {\def\insertsubtitle{#2}}%
+    {\protected\def\insertsubtitle{{\beamerhelmholtzai@subtitleformatspacingb{LetterSpace=15.0}\beamerhelmholtzai@subtitleformatcaps{\beamerhelmholtzai@subtitleformatspacinga[120]{#2}}}}}%
+    {}%
+    {\PackageError{beamerhelmholtzai}{Patching original subtitle failed}\@ehc}
+\patchcmd{\beamer@part}%
+    {\def\insertpart{\expandafter\hyperlink\partlink}}%
+    {\def\insertpart{{\beamerhelmholtzai@partformatspacingb{LetterSpace=15.0}\beamerhelmholtzai@partformatcaps{\beamerhelmholtzai@partformatspacinga[120]{\expandafter\hyperlink\partlink}}}}}%
+    {}%
+    {\PackageError{beamerhelmholtzai}{Patching original part failed}\@ehc}
+\patchcmd{\beamer@@frametitle}
+    {{%
+        \gdef\insertframetitle{{#2\ifnum\beamer@autobreakcount>0\relax{}\space%
+        \usebeamertemplate*{frametitle continuation}\fi}}%
+        \gdef\beamer@frametitle{#2}%
+        \gdef\beamer@shortframetitle{#1}%
+    }}
+    {{%
+        \gdef\insertframetitle{{\beamerhelmholtzai@frametitleformatcaps{#2}\ifnum%
+        \beamer@autobreakcount>0\relax{}\space%
+        \usebeamertemplate*{frametitle continuation}\fi}}%
+        \gdef\beamer@frametitle{#2}%
+        \gdef\beamer@shortframetitle{#1}%
+    }}
+    {}
+    {\PackageError{beamerhelmholtzai}{Patching original frame title failed}\@ehc}
+\makeatother
