@@ -5,7 +5,11 @@
 % slide geometry
 \setbeamersize{%
     text margin left=0.8cm,
-    text margin right=0.8cm
+    text margin right=0.8cm,
+    sidebar width left=0cm,
+    sidebar width right=0cm,
+    mini frame size=0cm,
+    mini frame offset=0cm
 }
 
 % background canvas
@@ -107,7 +111,9 @@
 %% general
 \defbeamertemplate{headline}{empty}{}
 \setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.2cm]{}
     \hspace{0.8cm}
+    \end{beamercolorbox}
     \usebeamercolor[fg]{title}\insertauthor\enspace\vrule width0.3pt\enspace\inserttitle%
     \vspace{0.06cm}
 }
