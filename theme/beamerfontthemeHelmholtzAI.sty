@@ -16,8 +16,11 @@
     BoldItalicFont=CorporateS-Bold Italic.otf,
 ]{CorporateS-Regular.otf}
 \setmonofont[
-    Path=fonts/
-]{CorporateS-Mono.otf}
+    Path=fonts/,
+    BoldFont=CorporateMono-Bold.otf,
+    ItalicFont=CorporateMono-Italic.otf,
+    BoldItalicFont=CorporateMono-Bold Italic.otf,
+]{CorporateMono-Regular.otf}
 
 \newfontfamily\hermannboldfont[Path=fonts/]{Hermann-Bold.otf}
 \newcommand{\hermann}[1]{{\hermannboldfont #1}}
@@ -39,7 +42,7 @@
 
 % fonts for special text fields
 \setbeamerfont{caption}{size=\small}
-\setbeamerfont{caption name}{parent={structure,caption}}
+\setbeamerfont{caption name}{parent={structure, caption}}
 
 \setbeamerfont{date}{size*={10pt}{10pt}}
 
