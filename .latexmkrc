@@ -7,11 +7,8 @@ $pdf_mode = 1;
 $postscript_mode = 0;
 $dvi_mode = 0;
 
-# Put all generated files into a build dir to keep things a bit cleaner
-#$aux_dir = "./build";
-
 # Increase max repeats of luatex/xelatex runs, mostly needed for glossaries
-#$max_repeat = 9;
+$max_repeat = 2;
 
 # Set extensions for cleanup when using -c option
 push @generated_exts;
