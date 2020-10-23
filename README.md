@@ -22,12 +22,18 @@ sudo apt-get install texlive-full
 sudo dnf install texlive-scheme-full
 ```
 
+*TeX Live (any system)*
+
+If you don't have sudo access you can install [TeX Live](https://www.tug.org/texlive/) locally.
+Visit the [TeX Live quick install page](https://www.tug.org/texlive/quickinstall.html) for instructions.
+
 Building the slides
 -------------------
 
-In order to build your slides you can use your favorite LaTeX IDE, like TeXstudio, Texmaker or even Overleaf. Please ensure that you compile it with XeLaTeX or LuaLaTeX instead of the (usual default) pdfLaTeX.
+In order to build your slides you can use your favorite LaTeX IDE, like TeXstudio, Texmaker or even Overleaf.
+Please ensure that you compile it with XeLaTeX or LuaLaTeX instead of the (usual default) pdfLaTeX.
 
-Moreover, you can also use the provided Makefile and simply typing the following in your terminal.
+You can opt to use the provided Makefile and simply typing the following in your terminal:
 
 ``` bash
 make
@@ -37,6 +43,19 @@ To get rid of all the temporary files, including the final slides PDF, created d
 
 ``` bash
 make clean
+```
+
+Alternatively, you can use the `latexmk` tool to compile your slides (either in the terminal or by setting it as the compiler in your IDE).
+A working `.latexmkrc` is included, simply run the following:
+
+```bash
+latexmkrc slides.tex
+```
+
+To get rid of all temporary files created during compilation use the `-c` flag (`-C` to also remove the final slides PDF):
+
+```bash
+latexmkrc -c slides.tex
 ```
 
 License
