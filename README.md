@@ -3,7 +3,7 @@
 Status
 ------
 
-[![license: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![license: BSD-3](https://img.shields.io/badge/License-BSD3-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 Requirements
 ------------
@@ -61,7 +61,7 @@ latexmkrc -c slides.tex
 License
 -------
 
-The Helmholtz AI beamer template is distributed under the MIT license, see our [LICENSE](LICENSE) file for details.
+The Helmholtz AI beamer template is distributed under the BSD-3 license, see our [LICENSE](LICENSE) file for details.
 
 Copyrights
 ----------
