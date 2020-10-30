@@ -109,16 +109,18 @@
 
 % slide layout
 %% general
+
 \defbeamertemplate{headline}{empty}{}
 \setbeamertemplate{footline}{%
     \begin{beamercolorbox}[wd=\paperwidth,ht=2.2cm]{}
-    \hspace{0.8cm}
     \end{beamercolorbox}
+    \hspace{0.8cm}
     \usebeamercolor[fg]{title}\insertauthor\enspace\vrule width0.3pt\enspace\inserttitle%
     \vspace{0.06cm}
 }
 \setbeamertemplate{navigation symbols}{%
-    \vspace{-6pt}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=\dimexpr\paperheight-6pt]{}
+    \end{beamercolorbox}
     \usebeamercolor[fg]{title}\usebeamerfont*{navigation symbols}\insertframenumber/\inserttotalframenumber
 }
 \setbeamertemplate{section in toc}{%
