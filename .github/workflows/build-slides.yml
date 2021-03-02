@@ -19,10 +19,11 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: slides.tex
+          #totally unclear if I need this option for lualatex
           latexmk_use_lualatex: true
 
       - name: upload artifact
         uses: actions/upload-artifact@v2
-          with:
-            name: PDF
-            path: slides.pdf
+        with:
+          name: PDF
+          path: slides.pdf
