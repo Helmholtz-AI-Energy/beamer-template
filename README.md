@@ -58,6 +58,8 @@ To get rid of all temporary files created during compilation use the `-c` flag (
 latexmkrc -c slides.tex
 ```
 
+Note: At the time of writing, the contents of this repo can be readily used on [overleaf](https://overleaf.com).
+
 License
 -------
 
