@@ -13,7 +13,7 @@ Ensure that you have an up-to-date LaTeX distribution installed on your system.
 *Ubuntu/Debian*
 
 ``` bash
-sudo apt-get install texlive-full
+sudo apt install texlive-full
 ```
 
 *Fedora/CentOS/RHEL*
@@ -39,13 +39,17 @@ You can opt to use the provided Makefile and simply typing the following in your
 make
 ```
 
+which uses the `latexmk` tool under the hood. We highly recommend `latexmk` when
+compiling on the command line since it handles the bibliography, e.g. using
+`bib(la)tex` + `biber` automatically.
+
 To get rid of all the temporary files, including the final slides PDF, created during the compilation you may also type:
 
 ``` bash
 make clean
 ```
 
-Alternatively, you can use the `latexmk` tool to compile your slides (either in the terminal or by setting it as the compiler in your IDE).
+Alternatively, you can use the `latexmk` directly tool to compile your slides (either in the terminal or by setting it as the compiler in your IDE).
 A working `.latexmkrc` is included, simply run the following:
 
 ```bash
@@ -55,11 +59,10 @@ latexmk slides.tex
 To get rid of all temporary files created during compilation use the `-c` flag (`-C` to also remove the final slides PDF):
 
 ```bash
-latexmk -c slides.tex
+latexmk -c
 ```
 
 Note: At the time of writing, the contents of this repo can be readily used on [overleaf](https://overleaf.com).
-
 
 ### Use standard TeX math font
 
@@ -78,6 +81,17 @@ Then on the TeX side, use
 \usefonttheme[onlymath]{serif}
 ```
 
+### Link this theme
+
+The above build workflow assumes that you use a copy of this template repo for
+each new talk. Instead, you may as an alternative (i) use `git submodule` to
+add this template repo to your talk's repo in order to keep track of updates or
+(ii) link the relevant files into your talk repos. We provide a convenience
+script `link-theme.sh` which can help you with that. See `link-theme.sh -h` for
+usage examples. In both cases you may also want to copy `.latexmkrc` and
+`Makefile` over.
+
+
 ## License
 
 The Helmholtz AI beamer template is distributed under the BSD-3 license, see our [LICENSE](LICENSE) file for details.
@@ -85,4 +99,4 @@ The Helmholtz AI beamer template is distributed under the BSD-3 license, see our
 
 ## Copyrights
 
-The images and fonts provided as part of this LaTeX source code repository are copyrighted. As member of the Helmholtz Association you can freely use the material. For Helmholtz AI external users, you have to ensure that you are allowed to use a) the Helmholtz AI visual material, b) the Helmholtz coporate design as well as c) the Hermann Bold font and Corporate-S font family.
+The images and fonts provided as part of this LaTeX source code repository are copyrighted. As member of the Helmholtz Association you can freely use the material. For Helmholtz AI external users, you have to ensure that you are allowed to use a) the Helmholtz AI visual material, b) the Helmholtz corporate design as well as c) the Hermann Bold font and Corporate-S font family.

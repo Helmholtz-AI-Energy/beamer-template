@@ -1,14 +1,11 @@
-# Set latexmk to call lualatex instead of pdflatex for compiling Feynman diags
-$pdflatex = "xelatex -interaction=nonstopmode -file-line-error --synctex=1 -shell-escape %O %S";
+# run bibtex or biber, clean up .bbl files
+$bibtex_use = 2;
 
-# Need to turn of ps and dvi generation for lualatex/xelatex, if you want these you'll 
-# need to convert the pdf later.
+# latexmk -pdf
 $pdf_mode = 1;
-$postscript_mode = 0;
-$dvi_mode = 0;
 
-# Increase max repeats of luatex/xelatex runs, mostly needed for glossaries
-$max_repeat = 2;
+# --shell-escape b/c of minted package
+# xelatex b/c of font stuff
+$pdflatex = "xelatex -interaction=errorstopmode -file-line-error --synctex=1 -shell-escape %O %S";
 
-# Set extensions for cleanup when using -c option
-push @generated_exts;
+push @generated_exts, "bak", "bbl", "run.xml", "nav", "snm", "vrb", "synctex.*"
