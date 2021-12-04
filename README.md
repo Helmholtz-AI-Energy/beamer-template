@@ -8,7 +8,7 @@ Status
 Requirements
 ------------
 
-Ensure that you have an up-to-date LaTeX distribution installed on your system. 
+Ensure that you have an up-to-date LaTeX distribution installed on your system.
 
 *Ubuntu/Debian*
 
@@ -49,13 +49,13 @@ Alternatively, you can use the `latexmk` tool to compile your slides (either in 
 A working `.latexmkrc` is included, simply run the following:
 
 ```bash
-latexmkrc slides.tex
+latexmk slides.tex
 ```
 
 To get rid of all temporary files created during compilation use the `-c` flag (`-C` to also remove the final slides PDF):
 
 ```bash
-latexmkrc -c slides.tex
+latexmk -c slides.tex
 ```
 
 Note: At the time of writing, the contents of this repo can be readily used on [overleaf](https://overleaf.com).
