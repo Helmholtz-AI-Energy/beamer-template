@@ -61,6 +61,23 @@ latexmk -c slides.tex
 Note: At the time of writing, the contents of this repo can be readily used on [overleaf](https://overleaf.com).
 
 
+### Use standard TeX math font
+
+In order to use the standard serif TeX math font,
+copy or link `/path/to/beamerfontthemeserif.sty` into `theme/`, e.g.
+
+```sh
+$ cd theme
+$ ln -s /usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty beamerfontthemeserif.sty
+```
+
+Then on the TeX side, use
+
+```tex
+\usepackage{lmodern}
+\usefonttheme[onlymath]{serif}
+```
+
 ## License
 
 The Helmholtz AI beamer template is distributed under the BSD-3 license, see our [LICENSE](LICENSE) file for details.
