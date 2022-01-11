@@ -295,3 +295,5 @@ TSWLatexianTemp*
 
 # End of https://www.toptal.com/developers/gitignore/api/latex
 
+# Not part of this theme, but people may want it and link/copy the file.
+theme/beamerfontthemeserif.sty

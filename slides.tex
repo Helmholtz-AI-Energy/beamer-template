@@ -5,6 +5,14 @@
 \documentclass[aspectratio=1610]{beamer}
 \usepackage{helmholtzai}
 
+% Use standard TeX math font.
+%
+% Copy or link /path/to/beamerfontthemeserif.sty into theme/, e.g.
+%   cd theme
+%   ln -s /usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty beamerfontthemeserif.sty
+%%\usepackage{lmodern}
+%%\usefonttheme[onlymath]{serif}
+
 \title{Title}
 \subtitle{Subtitle}
 \author{Firstname Lastname}
@@ -17,7 +25,7 @@
 
 \begin{frame}
     \frametitle{Usage}
-    
+
     \begin{enumerate}
         \item Download all files from Github\\~
         \item Edit \texttt{slides.tex} with your favorite editor\\~
@@ -26,14 +34,14 @@
             \item Typing \texttt{make} or \texttt{latexmk} in the directory of \texttt{slides.tex} or\\~
             \item Using a LaTeX IDE like TeXstudio\\~
         \end{enumerate}
-		\item \emph{Note:} make sure to use LuaLaTeX or XeLaTeX (default in \texttt{make}/\texttt{latexmk}) as compiler 
+        \item \emph{Note:} make sure to use LuaLaTeX or XeLaTeX (default in \texttt{make}/\texttt{latexmk}) as compiler
     \end{enumerate}
 \end{frame}
 
 \begin{frame}
     \frametitle{Main Slide Title}
     \framesubtitle{\textbf{Subtitle} with more \emph{details}}
-    
+
     \begin{itemize}
         \item Standard bullet point can be created with the \texttt{itemize} environment
         \item They can have multiple sub-point
@@ -79,9 +87,9 @@
 
 \begin{frame}[fragile]
     \frametitle{Code}
-    
+
     \emph{Note the [fragile] specifier next to frame and the code indentation.}
-    
+
 \begin{lstlisting}[language=Python]
 import numpy as np
 
@@ -99,9 +107,9 @@ def foo(a, b):
 \begin{frame}
     \frametitle{Colors}
     \framesubtitle{Basic Definitions}
-    
+
     \emph{The beamer template contains definitions for all Helmholtz colors.}\\
-    
+
     \begin{table}
         \centering
         \small
@@ -124,9 +132,9 @@ def foo(a, b):
 \begin{frame}
     \frametitle{Colors}
     \framesubtitle{Shades}
-    
+
     \emph{For each color there exist 10 lighter shades, exemplary for hgfblue}\\
-    
+
     \begin{table}
         \centering
         \small
@@ -148,7 +156,7 @@ def foo(a, b):
 
 \begin{frame}
     \frametitle{Blocks}
-    
+
     \begin{block}{block}
         This is how a regular block looks like
     \end{block}
@@ -164,7 +172,7 @@ def foo(a, b):
 
 \begin{frame}
     \frametitle{Special Formatting}
-    
+
     \begin{itemize}
         \item There are raw links with the full URL \url{https://www.google.com}
         \item You can add also links with names \href{https://www.google.com}{Google}\\~
