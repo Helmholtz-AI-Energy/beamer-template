@@ -272,6 +272,9 @@ TSWLatexianTemp*
 ./auto/*
 *.el
 
+# Gutentags tags file for vim
+tags
+
 # expex forward references with \gathertags
 *-tags.tex
 
