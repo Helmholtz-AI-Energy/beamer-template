@@ -107,6 +107,15 @@
     \end{tikzpicture}
 }
 
+% references
+\newcommand{\reference}[1]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \node [anchor=south west, xshift=0.7cm, yshift=0.3cm, text=hgfgray, text width=9cm, execute at begin node=\setlength{\baselineskip}{1pt}] at (current page.south west){
+            \tiny #1
+        };
+    \end{tikzpicture}
+}
+
 % slide layout
 %% general
 
