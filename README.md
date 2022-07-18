@@ -49,7 +49,7 @@ To get rid of all the temporary files, including the final slides PDF, created d
 make clean
 ```
 
-Alternatively, you can use the `latexmk` directly tool to compile your slides (either in the terminal or by setting it as the compiler in your IDE).
+Alternatively, you can use the `latexmk` tool directly to compile your slides (either in the terminal or by setting it as the compiler in your IDE).
 A working `.latexmkrc` is included, simply run the following:
 
 ```bash
@@ -81,15 +81,15 @@ Then on the TeX side, use
 \usefonttheme[onlymath]{serif}
 ```
 
-### Link this theme
+### Use this theme in another talk repository
 
 The above build workflow assumes that you use a copy of this template repo for
 each new talk. Instead, you may as an alternative (i) use `git submodule` to
 add this template repo to your talk's repo in order to keep track of updates or
-(ii) link the relevant files into your talk repos. We provide a convenience
-script `link-theme.sh` which can help you with that. See `link-theme.sh -h` for
-usage examples. In both cases you may also want to copy `.latexmkrc` and
-`Makefile` over.
+(ii) link the relevant files into your talk repos. We provide convenience
+scripts `init-theme-submodule.sh` for (i) and `link-theme.sh` for (ii) which
+can help you with that. See `script.sh -h` for usage examples. In both cases
+you may also want to copy `.latexmkrc` and `Makefile` over.
 
 
 ## License
