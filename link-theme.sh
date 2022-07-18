@@ -29,6 +29,9 @@ Link <template_dir>'s main components into another <talk_dir>. With
     logos           -> /path/to/hai-beamer-template/logos
     theme           -> /path/to/hai-beamer-template/theme
 
+Also, we try to find beamerfontthemeserif.sty on your machine and set a link to
+it in theme/.
+
 args:
     template_dir : path to template repo, default is the path to this
         script [$template_dir]
@@ -87,3 +90,9 @@ for name in fonts helmholtzai.sty logos theme; do
         ln -s $link_target $link_name
     fi
 done
+
+serif_sty_src=/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty
+serif_sty_tgt=theme/beamerfontthemeserif.sty
+if [ -e $serif_sty_src ]; then
+    [ -e $serif_sty_tgt ] || ln -vs $serif_sty_src $serif_sty_tgt
+fi
