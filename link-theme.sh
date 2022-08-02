@@ -15,11 +15,13 @@ abspath(){
 # defaults
 template_dir=$(abspath $(dirname $0))
 simulate=false
+this=$(basename $0)
+
 
 usage(){
     cat << EOF
 usage:
-    $(basename $0) [-s] [<template_dir>] <talk_dir>
+    $this [-s] [<template_dir>] <talk_dir>
 
 Link <template_dir>'s main components into another <talk_dir>. With
 <template_dir>=/path/to/hai-beamer-template :
@@ -42,19 +44,20 @@ options:
 
 examples:
 
-    # run from <template_dir>, use default <template_dir>
-    $ ./link-theme.sh /path/to/my/talk/
+    Run from <template_dir>, use default <template_dir>
+        $ cd /path/to/hai-beamer-template
+        $ ./$this /path/to/my/talk/
 
-    # run from <talk_dir>, use default <template_dir>
-    $ cd /path/to/my/talk
-    $ /path/to/hai-beamer-template/link-theme.sh ./
+    Run from <talk_dir>, use default <template_dir>
+        $ cd /path/to/my/talk
+        $ /path/to/hai-beamer-template/$this ./
 
-    # run from anywhere, also use default <template_dir>
-    $ /path/to/hai-beamer-template/link-theme.sh /path/to/my/talk
+    Run from anywhere, also use default <template_dir>
+        $ /path/to/hai-beamer-template/$this /path/to/my/talk
 
-    # run from anywhere, but target another <template_dir> (rather unusual
-    # but possible)
-    $ /path/to/hai-beamer-template/link-theme.sh /path/to/other/template /path/to/my/talk
+    Run from anywhere, but target another <template_dir> (rather unusual
+    but possible)
+        $ /path/to/hai-beamer-template/$this /path/to/other/template /path/to/my/talk
 
 EOF
 }
@@ -91,6 +94,8 @@ for name in fonts helmholtzai.sty logos theme; do
     fi
 done
 
+# This path works on Debian, so probably also Ubuntu. Add more paths to
+# check if needed or query locate(1).
 serif_sty_src=/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty
 serif_sty_tgt=theme/beamerfontthemeserif.sty
 if [ -e $serif_sty_src ]; then

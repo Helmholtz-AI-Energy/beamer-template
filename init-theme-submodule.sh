@@ -13,15 +13,16 @@ abspath(){
 }
 
 # defaults
-repo_url=https://github.com/Helmholtz-AI-Energy/beamer-template.git
+template_repo_url=https://github.com/Helmholtz-AI-Energy/beamer-template.git
 submod_dir=hai_beamer_template
 remove=false
 this=$(basename $0)
 
+
 usage(){
     cat << EOF
 usage:
-    $this [-r] <talk_dir> [repo_url]
+    $this [-r] <talk_dir> [template_repo_url]
 
 Initialize this repo as git submodule in another talk repo and set links.
 
@@ -44,7 +45,7 @@ submodule and the created links. Again, no commits are made, so you can always
 
 args:
     talk_dir : target dir where to create submodule and links
-    repo_url : set different URL (e.g. to point to a fork of this repo)
+    template_repo_url : set different URL (e.g. to point to a fork of this repo)
 
 options:
     -r : remove submodule
@@ -63,7 +64,7 @@ examples:
         $ /path/to/hai-beamer-template/$this /path/to/my/talk
 
     Use another repo
-        $ /path/to/hai-beamer-template/$this /path/to/my/talk git@github.com:elcorto/helmholtz-ai-beamer-template.git
+        $ /path/to/hai-beamer-template/$this /path/to/my/talk git@github.com:user42/awesome-helmholtz-ai-beamer-template-fork.git
 EOF
 }
 
@@ -80,11 +81,11 @@ shift $((OPTIND - 1))
 [ $# -eq 1 -o $# -eq 2 ] || err "only one or two args supported"
 
 [ $# -eq 1 ] && talk_dir=$1
-[ $# -eq 2 ] && talk_dir=$1 && repo_url=$2
+[ $# -eq 2 ] && talk_dir=$1 && template_repo_url=$2
 
 talk_dir=$(abspath $talk_dir)
 echo "talk_dir: $talk_dir"
-echo "repo_url: $repo_url"
+echo "template_repo_url: $template_repo_url"
 
 cd $talk_dir
 
@@ -92,7 +93,7 @@ if ! $remove; then
     if [ -e $submod_dir ]; then
         echo "$submod_dir exists, not adding submodule; delete and re-run script to force add"
     else
-        git submodule add $repo_url $submod_dir
+        git submodule add $template_repo_url $submod_dir
     fi
 fi
 
