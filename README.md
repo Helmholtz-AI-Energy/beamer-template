@@ -12,14 +12,14 @@ Ensure that you have an up-to-date LaTeX distribution installed on your system.
 
 *Ubuntu/Debian*
 
-``` bash
-sudo apt install texlive-full
+```sh
+$ sudo apt install texlive-full
 ```
 
 *Fedora/CentOS/RHEL*
 
-``` bash
-sudo dnf install texlive-scheme-full
+```sh
+$ sudo dnf install texlive-scheme-full
 ```
 
 *TeX Live (any system)*
@@ -33,33 +33,39 @@ Visit the [TeX Live quick install page](https://www.tug.org/texlive/quickinstall
 In order to build your slides you can use your favorite LaTeX IDE, like TeXstudio, Texmaker or even Overleaf.
 Please ensure that you compile it with XeLaTeX or LuaLaTeX instead of the (usual default) pdfLaTeX.
 
-You can opt to use the provided Makefile and simply typing the following in your terminal:
+You can opt to use the provided `Makefile` and simply typing the following in your terminal:
 
-``` bash
-make
+```sh
+$ make
 ```
 
 which uses the `latexmk` tool under the hood. We highly recommend `latexmk` when
 compiling on the command line since it handles the bibliography, e.g. using
 `bib(la)tex` + `biber` automatically.
 
-To get rid of all the temporary files, including the final slides PDF, created during the compilation you may also type:
+To get rid of all the temporary files created during the compilation, use
 
-``` bash
-make clean
+```sh
+$ make clean
+```
+
+To also remove final slides PDF use
+
+```sh
+$ make allclean
 ```
 
 Alternatively, you can use the `latexmk` tool directly to compile your slides (either in the terminal or by setting it as the compiler in your IDE).
-A working `.latexmkrc` is included, simply run the following:
+A working `.latexmkrc` is included.
 
-```bash
-latexmk slides.tex
+```sh
+$ latexmk slides.tex
 ```
 
 To get rid of all temporary files created during compilation use the `-c` flag (`-C` to also remove the final slides PDF):
 
-```bash
-latexmk -c
+```sh
+$ latexmk -c
 ```
 
 Note: At the time of writing, the contents of this repo can be readily used on [overleaf](https://overleaf.com).
