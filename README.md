@@ -1,5 +1,10 @@
 # Helmholtz AI beamer template
 
+The place for Helmholtz AI LaTeX templates!
+
+You can find here the beamer slides and poster templates, with some 
+instructions on how to get started.
+
 
 ## Status
 
