@@ -1,5 +1,7 @@
 \documentclass[aspectratio=1610]{beamer}
-% \usepackage[orientation=portrait,size=a2,scale=1.4]{beamerposter}
+% Default for larger posters
+%\usepackage[orientation=portrait,size=a0,scale=1.4]{beamerposter}
+% For smaller posters you might want a larger scale so the text is bigger
 \usepackage[orientation=portrait,size=a2,scale=1.8]{beamerposter}
 
 % This MUST be imported after beamerposter
@@ -39,12 +41,26 @@
 \begin{document}
 
 \begin{frame}[fragile]{}
-    % \vfill
-    \vspace{-3ex}
+
+    % Here's where you could manually reduce the space after the headline
+    %\vspace{-5ex}
     
     \begin{columns}[t]
         \begin{column}{.5\linewidth}
         
+
+            % First steps
+            \begin{haiblock}{First steps}
+
+                \begin{enumerate}
+                    \item Set the poster size \& scale in the preamble
+                        (look for \texttt{beamerposter})
+                    \item Fill in the title/name/date/etc.
+                    \item Add any institute/sponsor logos to the bottom of the poster
+                    \item Make any minor manual adjustments (e.g.~reducing space after heading)
+                \end{enumerate}
+
+            \end{haiblock}
             % First block
             \begin{haiblock}{Example block}
 
@@ -52,19 +68,14 @@
                 \texttt{haiblock} which you can use just like a normal LaTeX block
                 (it's actually a custom \texttt{tcolorbox})
 
+                % Note the indent of the code, it'll treat everything
+                % in the minted environment literally
                 \begin{minted}[bgcolor=hgfgray10]{latex}
 \begin{haiblock}{Title}
     Contents of block
 \end{haiblock}
                 \end{minted}
 
-
-                You can put anything you like inside, for example a figure:
-                \begin{figure}
-                    \centering
-                    \includegraphics[width=0.7\textwidth]{example-image-a}
-                \end{figure}
-                
             \end{haiblock}
             
             % Column block
@@ -119,16 +130,16 @@
         \end{column}
         \begin{column}{.5\linewidth}
         
-            % Partners/workflow
+            % Example of full sized figure
             \begin{haiblock}{Block with only figure}
 
             \begin{figure}
                 \centering
-                \includegraphics[width=\columnwidth]{example-image}
+                \includegraphics[width=\columnwidth]{example-image-golden}
             \end{figure}
             \end{haiblock}
             
-            % Solution
+            % Example of code snippets
             \begin{haiblock}{Block with code}
 
                 Here's a snippet of code using the minted package
@@ -143,10 +154,9 @@ def foo(a, b):
     return a + b + 1
                 \end{minted}
 
-                Wow what a cool function that is!
-
             \end{haiblock}
 
+            % Example of references
             \begin{haiblock}{References}
 
                 \begin{enumerate}
@@ -167,6 +177,7 @@ def foo(a, b):
     \end{columns}
     
     \vfill
+    % Place any relevant logos here
     \begin{figure}[b]
         \centering
         \includegraphics[width=0.2\textwidth,height=0.055\textheight,keepaspectratio]{logos/helmholtzai_logo_2_lines.eps}%
