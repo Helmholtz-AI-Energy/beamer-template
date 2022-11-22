@@ -1,0 +1,150 @@
+\documentclass[aspectratio=1610]{beamer}
+% \usepackage[orientation=portrait,size=a2,scale=1.4]{beamerposter}
+\usepackage[orientation=portrait,size=a2,scale=1.8]{beamerposter}
+
+% This MUST be imported after beamerposter
+\usepackage{helmholtzaiposter} %available: helmholtzai1, helmhotzai2
+\usepackage{siunitx}
+\sisetup{
+		mode=match,
+		propagate-math-font=true,
+		reset-math-version=false,
+		reset-text-family=false,
+		reset-text-series=false,
+		text-family-to-math=true,
+		text-series-to-math=true
+}
+
+\title{Helmholtz AI Poster Template}
+\author{Con Sultant}
+\institute[Helmholtz AI]
+  {Helmholtz AI, Germany}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}{}
+    % \vfill
+    \vspace{-3ex}
+    
+    \begin{columns}[t]
+        \begin{column}{.5\linewidth}
+        
+            % First block
+            \begin{haiblock}{Example block}
+
+
+                \vspace{0.5em}
+                \begin{itemize}
+                \item Pipe material deteriorates due to:
+                \begin{itemize}
+                    \item Corrosion, ground motion, material degradation
+                \end{itemize}
+                \item Leaks produce warmer surface
+                \item Often no monitoring systems in place
+                \end{itemize}
+
+                \vspace{0.5em}
+                \textbf{Leakages cause}:
+                \begin{itemize}
+                    \item Reduced efficiency (energy wastage)
+                    \item Soil collapse due to erosion
+                    \item High repair costs
+                    % \item Public safety hazard
+                \end{itemize}
+                
+                \vspace{0.5em}
+                \textbf{Goal:} Automate detection of leakages via drones
+                \textbf{Problem:} Few ground truth examples
+
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=\textwidth]{example-image-a}
+                \end{figure}
+                
+            \end{haiblock}
+            
+            % Column block
+            \begin{haiblock}{Block with columns}
+
+            Some initial description
+
+            \begin{columns}[t]
+                \begin{column}{0.5\linewidth}
+                
+                \textbf{Left column}
+                \begin{itemize}
+                    \item point
+                    \item point
+                \end{itemize}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=\columnwidth]{example-image-b}%
+                \end{figure}
+                    
+                \end{column}
+                \begin{column}{0.5\linewidth}
+                
+                \textbf{Right column}
+                \begin{itemize}
+                    \item point
+                    \item point
+                \end{itemize}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=\columnwidth]{example-image-c}%
+                \end{figure}
+                    
+                \end{column}
+            \end{columns}
+
+            \vspace{1em}
+
+            Some addition things
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.4\textwidth]{example-image}%
+                \hfill%
+                \includegraphics[width=0.4\textwidth]{example-image}%
+            \end{figure}
+                
+            \end{haiblock}
+            
+        \end{column}
+        \begin{column}{.5\linewidth}
+        
+            % Partners/workflow
+            \begin{haiblock}{Block with only figure}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=\columnwidth]{example-image}
+            \end{figure}
+            \end{haiblock}
+            
+            % Solution
+            \begin{haiblock}{Some code}
+
+                TODO: Insert code snippet
+
+            \end{haiblock}
+            
+        \end{column}
+    \end{columns}
+    
+    \vfill
+    \begin{figure}[b]
+        \centering
+        \includegraphics[height=0.055\textheight]{logos/helmholtzai_logo_2_lines.eps}%
+        \hfill%
+        \includegraphics[height=0.055\textheight]{logos/helmholtzai_logo_3_lines.eps}%
+        \hfill%
+        \includegraphics[height=0.055\textheight]{logos/helmholtzai_logo_2_lines.eps}%
+        \hfill%
+        \includegraphics[height=0.055\textheight]{logos/helmholtzai_logo_3_lines.eps}%
+    \end{figure}
+    
+  \end{frame}
+
+ 
+\end{document}
