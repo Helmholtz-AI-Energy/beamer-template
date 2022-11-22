@@ -65,7 +65,7 @@ $ latexmk slides.tex
 To get rid of all temporary files created during compilation use the `-c` flag (`-C` to also remove the final slides PDF):
 
 ```sh
-$ latexmk -c
+$ latexmk -c slides.tex
 ```
 
 Note: At the time of writing, the contents of this repo can be readily used on [overleaf](https://overleaf.com).
@@ -97,6 +97,37 @@ scripts `init-theme-submodule.sh` for (i) and `link-theme.sh` for (ii) which
 can help you with that. See `script.sh -h` for usage examples. In both cases
 you may also want to copy `.latexmkrc` and `Makefile` over.
 
+## Building the poster
+
+Building the poster is the same process as building slides.
+It uses the `beamerposter` package, so again please ensure that you
+compile it with XeLaTeX or LuaLaTeX instead of the (usual default) pdfLaTeX.
+
+If you use the provided `Makefile`, you will first need to edit it to
+point to the poster, so change the first line to:
+
+```
+main=poster.tex
+```
+
+and then running the following in your terminal:
+
+```sh
+$ make
+```
+
+Otherwise, using the `latexmk` tool directly to compile it requires no 
+configuration changes to the included `.latexmkrc`, simply run:
+
+```sh
+$ latexmk poster.tex
+```
+
+To get rid of all temporary files created during compilation use the `-c` flag (`-C` to also remove the final slides PDF):
+
+```sh
+$ latexmk -c poster.tex
+```
 
 ## License
 
