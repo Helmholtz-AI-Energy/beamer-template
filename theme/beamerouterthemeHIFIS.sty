@@ -1,0 +1,229 @@
+%% V0.1
+%% 2023/05/15
+%% by Sander Apweiler
+%% based on Helmholtz AI
+
+% slide geometry
+\setbeamersize{%
+    text margin left=0.8cm,
+    text margin right=0.8cm,
+    sidebar width left=0cm,
+    sidebar width right=0cm,
+    mini frame size=0cm,
+    mini frame offset=0cm
+}
+
+% background canvas
+%% title
+\defbeamertemplate{background canvas}{title}{%
+    \includegraphics[width=\paperwidth, height=\paperheight]{logos/hgf_lines_4.png}
+}
+
+%% regular
+\defbeamertemplate{background canvas}{empty}{}
+\pgfkeys{/beamerhgf/outer/.cd,
+    background canvas/.initial=empty
+}
+
+% HGF slider bars
+%% top
+\newcommand{\topslider}[1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#1, draw=none, rounded corners=2pt] (current page.north east)
+        [turtle={
+            lt, forward=1.1\paperwidth, 
+            lt, forward=.19\paperheight, 
+            lt, forward=.47\paperwidth, 
+            left=45, forward=1.5ex,
+            right=45, forward=.63\paperwidth, 
+            home
+        }];
+    \end{tikzpicture}
+}
+
+%% bottom
+\newcommand{\bottomslider}[1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#1, draw=none, rounded corners=2pt] (current page.south east)
+        [turtle={
+            lt, fd=1.1\paperwidth, 
+            rt, fd=0.025\paperheight, 
+            rt, fd=.8375\paperwidth, 
+            lt=45, fd=1.5ex, 
+            rt=45, fd=.25\paperwidth, 
+            home
+        }];
+    \end{tikzpicture}
+}
+
+%% left
+\newcommand{\leftslider}[1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#1, draw=none, rounded corners=2pt] (current page.south west)
+        [turtle={
+            fd=.05\paperheight, rt, 
+            fd=.15\paperwidth, rt=45, 
+            fd=4.5ex, rt=135, 
+            fd=.15\paperwidth, 
+            home
+        }];
+    \end{tikzpicture}
+}
+
+%% research field
+\newcommand{\rfslider}[1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#1, draw=none, rounded corners=2pt] (current page.south east) ++ (-.25\paperwidth, .042\paperheight)
+        [turtle={
+            lt, fd=.13\paperwidth, 
+            lt=45, fd=1.5ex, 
+            lt=135, fd=.13\paperwidth, 
+            home
+        }];
+    \end{tikzpicture}
+}
+
+% banner
+\newcommand{\banner}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=north west, xshift=0.8cm, yshift=-0.6cm] at (current page.north west) {
+           \includegraphics[scale=0.15]{logos/HIFIS_Logo_short_RGB}
+        };
+        \node[align=right, anchor=north east, xshift=-0.6cm, yshift=-0.6cm] at (current page.north east) {
+             Helmholtz Digital Services for Science — Collaboration made easy.
+        };
+    \end{tikzpicture}
+}
+
+% header logo
+\newcommand{\headerlogo}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=north east, xshift=-0.8cm, yshift=-0.6cm] at (current page.north east) {
+            \includegraphics[scale=0.15]{logos/HIFIS_Logo_short_RGB.eps}
+        };
+    \end{tikzpicture}
+}
+
+% footer logo
+\newcommand{\footerlogo}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=south east, xshift=-1.8cm, yshift=0.0cm] at (current page.south east) {
+            \color{white}\tiny{www.hifis.net}
+        };
+    \end{tikzpicture}
+}
+
+% url
+\newcommand{\helmholtzaiurl}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=south east, text=hgfblue] at (current page.south east) {\tiny www.hifis.net};
+    \end{tikzpicture}
+}
+
+% references
+\newcommand{\reference}[1]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \node [anchor=south west, xshift=0.7cm, yshift=0.3cm, text=hgfgray, text width=9cm, execute at begin node=\setlength{\baselineskip}{1pt}] at (current page.south west){
+            \tiny #1
+        };
+    \end{tikzpicture}
+}
+
+% slide layout
+%% general
+
+\defbeamertemplate{headline}{empty}{}
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.2cm]{}
+    \end{beamercolorbox}
+    \hspace{0.8cm}
+    \usebeamercolor[fg]{title}\insertauthor\enspace\vrule width0.3pt\enspace\inserttitle%
+    \vspace{0.05cm}
+}
+\setbeamertemplate{navigation symbols}{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=\dimexpr\paperheight-6pt]{}
+    \end{beamercolorbox}
+    \usebeamercolor[fg]{title}\usebeamerfont*{navigation symbols}\insertframenumber/\inserttotalframenumber
+}
+\setbeamertemplate{section in toc}{%
+    \inserttocsectionnumber.~\inserttocsection
+}
+
+%% title
+\defbeamertemplate{background}{title}{%
+    \topslider{white}
+    \banner
+    \rfslider{hgfgreen}
+    \bottomslider{white}
+    \leftslider{hgfdarkblue}
+    \helmholtzaiurl
+}
+\defbeamertemplate{title page}{text}{%
+    \vspace{2.0cm}%
+    \hspace{0.3cm}%
+    \usebeamercolor[white]{title}\usebeamerfont*{title}\strut{}\inserttitle\par%
+    \hspace{0.3cm}%
+    \usebeamercolor[white]{subtitle}\usebeamerfont{subtitle}\strut{}\insertsubtitle\par%
+    \vspace{4.3cm}%
+    \hspace{0.3cm}%
+    \usebeamercolor[white]{title}\usebeamerfont*{author}\insertauthor\par%
+    \hspace{0.3cm}%
+    \usebeamercolor[white]{title}\usebeamerfont*{institute}\insertinstitute\enspace/\enspace\insertdate%
+}
+\setbeamertemplate{title page}[text]
+\pgfkeys{/beamerhelmholtzai/outer/.cd,
+    footline/.initial=empty,
+    title page/.initial=text
+}
+
+%% regular slide
+\defbeamertemplate{background}{frame}{%
+    \rfslider{hgfgreen}
+    \bottomslider{hgfblue}
+    \footerlogo
+}
+\setbeamertemplate{background}[frame]
+
+\defbeamertemplate{frametitle}{frame}{%
+    \ifx\insertframesubtitle\empty%
+        \vspace{12pt}%
+        \strut{}\insertframetitle
+    \else%
+        \insertframetitle\par%
+        \usebeamercolor[hgfblue]{framesubtitle}\usebeamerfont{framesubtitle}\strut{}\insertframesubtitle
+    \fi%
+    \par%
+    \noindent\rule[0.5\baselineskip]{\dimexpr\paperwidth-1.6cm}{0.4pt}%
+    \headerlogo
+}
+\setbeamertemplate{frametitle}[frame]
+
+% maketitle definition
+\def\maketitle{%
+{%
+    \setbeamertemplate{footline}{} 
+    \setbeamertemplate{navigation symbols}{} 
+    \ifbeamer@inframe%
+        \titlepage%
+        % resetting the background does not work for inframe, since empty title theme template cannot be set after \frame{...} here
+    \else%
+        \setbeamertemplate{frame number}[invisible]%
+        \setbeamertemplate{date}[invisible]%
+        \setbeamertemplate{background canvas}[title]%
+        \setbeamertemplate{background}[title]%
+        \setbeamertemplate{title page}[title]%
+        \frame[t, noframenumbering]{\titlepage}%
+    \fi%
+}%
+    % reset background to normal slides, does not change selected theme
+    \setbeamertemplate{background canvas}[empty]
+}
+
+% section slides
+\AtBeginSection[]{
+    \begin{frame}%
+        \vspace{4.5cm}%
+        \hspace{0.3cm}%
+        \huge\textcolor{hgfdarkblue}{\textbf{\insertsectionhead}}%
+    \end{frame}%
+}
