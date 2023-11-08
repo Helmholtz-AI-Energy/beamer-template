@@ -1,0 +1,153 @@
+% slide geometry
+\setbeamersize{%
+    text margin left=0.8cm,
+    text margin right=0.8cm,
+    sidebar width left=1cm,
+    sidebar width right=1cm,
+    mini frame size=0cm,
+    % mini frame offset=0cm
+}
+
+%% bottom
+\newcommand{\bottomslider}[2][1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#2, draw=none, rounded corners=#1*8pt] (current page.south east) ++ ( #1*10mm, 0mm)
+        [turtle={
+            fd=#1*45mm, 
+            lt, fd=#1*200mm, 
+            lt=45, fd=#1*31.8mm, 
+            rt=45, fd=\paperwidth, 
+            lt, fd=#1*24, 
+            home
+        }];
+    \end{tikzpicture}
+}
+
+\newcommand{\rftopslider}[2][1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#2, draw=none, rounded corners=#1*8pt] (current page.north east) ++ (0, 0)
+        [turtle={
+            lt, fd=#1*180mm, 
+            rt=-135, fd=#1*46mm, 
+            rt=-45, fd=#1*180mm, 
+            home
+        }];
+        %\node[draw] at (current page.south east) ++ (-200mm, 40mm) {some text};
+    \end{tikzpicture}
+}
+
+\newcommand{\rfslider}[2][1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#2, draw=none, rounded corners=#1*4pt] (current page.south east) ++ (#1*-200mm, #1*20mm)
+        [turtle={
+            lt, fd=#1*70mm, 
+            rt=135, fd=#1*26mm, 
+            rt=45, fd=#1*70mm, 
+            home
+        }];
+        %\node[draw] at (current page.south east) ++ (-200mm, 40mm) {some text};
+    \end{tikzpicture}
+}
+
+% footer logo
+\newcommand{\headerlogo}[1][1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=north west, xshift=(#1*2.4cm), yshift=(#1*-11mm)] at (current page.north west) {
+            \includegraphics[width=0.3\paperwidth]{logos/helmholtzai_logo_2_lines.eps}
+            % \includegraphics[scale=#1]{logos/helmholtzai_logo_2_lines.eps}
+        };
+    \end{tikzpicture}
+}
+
+% footer logo
+\newcommand{\footerlogo}[1][1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=south east, xshift=(#1*-2.4cm), yshift=(#1*11mm)] at (current page.south east) {
+            \includegraphics[width=0.17\paperwidth]{logos/helmholtzai_logo_2_lines_inverted.eps}
+            % \includegraphics[scale=#1]{logos/helmholtzai_logo_2_lines_inverted.eps}
+        };
+    \end{tikzpicture}
+}
+
+% url
+\newcommand{\helmholtzaiurl}[1][1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        % \node[anchor=south west, xshift=(#1*1.25mm), yshift=(#1*1.25mm),text=white] at (current page.south west) {\fontsize{#1*32pt}{#1*36pt} www.helmholtz.ai};
+        \node[anchor=south west, xshift=(#1*2.5mm), yshift=(#1*0.0mm),text=white] at (current page.south west) {www.helmholtz.ai};
+    \end{tikzpicture}
+}
+
+% energy slider
+% Currently unused
+\newcommand{\energyslider}[1][1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw[fill=hgfenergy, draw=none, rounded corners=#1*8pt] (current page.north west) ++ (#1*-10mm, #1*10mm)
+        [turtle={
+           lt, lt, fd=#1*30mm,
+           lt, fd=#1*70mm,
+           lt=45, fd=#1*38mm,
+           home
+        }];
+    \end{tikzpicture}
+}
+
+\newcommand{\energytext}[1][1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node at (1,-1) {
+            Energy
+        };
+    \end{tikzpicture}
+}
+
+\newcommand{\cornerslider}[1]{%
+    \rftopslider[#1]{hgfgreen}
+    \headerlogo[#1]
+    \rfslider[#1]{hgfgreen}
+    \bottomslider[#1]{hgfblue}
+    \footerlogo[#1]
+    \helmholtzaiurl[#1]
+}
+
+%% regular slide
+\defbeamertemplate{background}{frame}{%
+    %argument specifies the scale, 2 is the official size for A1 portrait, 1 for A2 portrait, 0.5 for A3 portrait and so on
+    \cornerslider{\fontscale}
+}
+\setbeamertemplate{background}[frame]
+\setbeamertemplate{navigation symbols}{}
+
+
+% Set Beamer to print the title etc
+\setbeamertemplate{headline}{  
+    \leavevmode
+    
+    \begin{beamercolorbox}[wd=\paperwidth,sep=0em]{headline}
+    
+        \vspace{15ex}
+        \begin{columns}
+        \begin{column}{0.1\textwidth}
+        \end{column}
+        \begin{column}{0.8\paperwidth}
+        
+            \centering
+            \usebeamercolor{title in headline}{\color{fg}\huge{\hermann{\inserttitle}}\\[0.5ex]}
+            \usebeamercolor{author in headline}{\color{fg}\Large{\insertauthor}\\[1ex]}
+            \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}}
+        \end{column}
+        \begin{column}{0.1\textwidth}
+        % In theory could add a poster logo here
+        \end{column}
+        \end{columns}
+        
+        %\vspace{-7ex}
+    \end{beamercolorbox}
+    % \begin{beamercolorbox}[wd=\paperwidth,ht=0pt]{lower separation line head}
+    % % \rule{1pt}{2pt}
+    % \end{beamercolorbox}
+  %   \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.5ex,dp=1.125ex]{section in head}%
+  %   \insertsectionnavigationhorizontal{.3\paperwidth}{\hskip0pt plus1filll}{}%
+  % \end{beamercolorbox}%
+  % \begin{beamercolorbox}[wd=.7\paperwidth,ht=2.5ex,dp=1.125ex]{subsection in head}%
+  %   \insertsubsectionnavigationhorizontal{.7\paperwidth}{}{\hskip0pt plus1filll}%
+  % \end{beamercolorbox}%
+}

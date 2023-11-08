@@ -1,0 +1,81 @@
+%% V0.1
+%% 2020/10/09
+%% by Markus Götz, Björn Hagemeier, James Kahn
+
+\RequirePackage{booktabs}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{fontspec}
+\RequirePackage{hyperref}
+\RequirePackage[utf8x]{inputenc}
+\RequirePackage{listings}
+\RequirePackage{tikz}
+
+\usetikzlibrary{
+    calc,
+    turtle,
+    positioning
+}
+
+\usefonttheme{HelmholtzAI}
+\usecolortheme{HelmholtzAI}
+\useinnertheme{HelmholtzAI}
+\useoutertheme{HelmholtzAIPoster}
+
+% Overwrite the blocks formatting here
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox[auto counter]{haiblock}[2][]{%
+    colback=white,
+    colframe=hgfgreen,
+    colbacktitle=white,
+    coltitle=hgfblue,
+    fonttitle=\hermannboldfont, 
+    title=#2,
+    enhanced,
+    attach boxed title to top left={yshift=-5mm, xshift=0.7cm},
+    boxed title style={boxrule=0mm},
+    boxrule=2pt, % Box frame thickness
+    arc=20pt, % Size of rounded corner arc
+    boxsep=1em, % Margin for all sides
+    #1
+}
+
+
+\pgfkeys{/beamerhelmholtzai/.cd, 
+    .search also={
+        /beamerhelmholtzai/inner,
+        /beamerhelmholtzai/outer,
+        /beamerhelmholtzai/color,
+        /beamerhelmholtzai/font,
+    },
+    title=regular,
+    subtitle=regular,
+    part=regular,
+    frametitle=regular,
+}
+
+\hypersetup{
+    colorlinks=true,% hyperlinks will be coloured
+    linkcolor=hgfblue,
+    urlcolor=hgfblue,
+    citecolor=hgfinformation,
+    anchorcolor=hgfblue,
+}
+
+\lstset{
+    basicstyle=\ttfamily\upshape\small,
+    breaklines=true,
+    backgroundcolor=\color{lightgray!20},
+    xleftmargin=0.3cm,
+    framexleftmargin=1em,
+    keywordstyle=\bfseries\color{hgfblue},
+    stringstyle=\color{hgfgreen},
+    commentstyle=\itshape\color{hgfinformation},
+    deletekeywords={compile},
+    escapechar=\&,
+    escapeinside={<@}{@>}
+}
+
+\newcommand{\source}[1]{%
+    \tiny\textcolor{hgfgray50}{Source: #1}
+}
